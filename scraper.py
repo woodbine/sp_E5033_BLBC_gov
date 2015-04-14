@@ -39,6 +39,7 @@ for block in blocks:
 	fileBlocks = soup2.findAll('li')
 	
 	for fileBlock in fileBlocks:
+		print fileBlock
 		fileUrl = fileBlock.a['href']
 		fileUrl = fileUrl.replace("/your-council","http://www.brent.gov.uk/your-council")
 		
