@@ -35,7 +35,8 @@ for block in blocks:
 	html2 = urllib2.urlopen(pageUrl)
 	soup2 = BeautifulSoup(html2)
 	
-	csvYr = soup2.find('h1').contents[0].strip()
+	headBlock = soup2.find('header')
+	csvYr = headBlock.find('h1').contents[0].strip()
 	print "csvYr: " + csvYr
 	
 	formBlock = soup2.find('form',{'action':'/your-council/transparency-in-brent/open-data/monthly-spend/2014/'}) # find the block containing the links
