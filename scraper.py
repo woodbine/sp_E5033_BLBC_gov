@@ -49,6 +49,7 @@ for block in blocks:
 		# create the right strings for the new filename
 		title = title.upper().strip()
 		print title
+		print len(title)
 		
 		if len(title) > 1:
 			print 'not a single month'
