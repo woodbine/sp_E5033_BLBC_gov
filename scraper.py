@@ -39,7 +39,8 @@ for block in blocks:
 	sublinks = soup2.findAll('a', href=True)
 	
 	for sublink in sublinks:
-		print sublink
+		subhref = sublink.a['href']
+		print subhref
 	
 	'''
 	#formBlock = soup2.findAll('ul', {'class': None}) # finds the UL without any class
