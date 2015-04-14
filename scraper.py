@@ -48,10 +48,8 @@ for block in blocks:
 		title = fileBlock.a.contents[0]
 		# create the right strings for the new filename
 		title = title.upper().strip()
-		print title
-		print len(title)
 		
-		if len(title) > 1:
+		if len(title.split()) > 1:
 			print 'not a single month'
 		else:
 			csvMth = title.split(' ')[0][:3]
