@@ -39,7 +39,7 @@ for block in blocks:
 	sublinks = soup2.findAll('a', href=True)
 	
 	for sublink in sublinks:
-		subhref = sublink.a['href']
+		subhref = sublink['href']
 		print subhref
 	
 	'''
