@@ -36,21 +36,21 @@ for block in blocks:
 	soup2 = BeautifulSoup(html2)
 	
 	csvYr = soup2.find('h1').contents[0]
-	fileBlocks = soup2.findAll('li')
+	
+	formBlock = soup2.find('form') # find the block containing the links
+	fileBlocks = formBlock.findAll('li')
 	
 	for fileBlock in fileBlocks:
 		print fileBlock
 		fileUrl = fileBlock.a['href']
 		fileUrl = fileUrl.replace("/your-council","http://www.brent.gov.uk/your-council")
-		
 		title = fileBlock.a.contents[0]
-		
-		if titleTest == None:
-			print 'not a csv'
+
+		# create the right strings for the new filename
+		title = title.upper().strip()
+		if len(title) > 1:
+			print 'not a single month'
 		else:
-			# create the right strings for the new filename
-			title = title.upper().strip()
-			
 			csvMth = title.split(' ')[0][:3]
 			csvMth = convert_mth_strings(csvMth);
 		
