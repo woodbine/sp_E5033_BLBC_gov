@@ -36,10 +36,10 @@ for block in blocks:
 	soup2 = BeautifulSoup(html2)
 	
 	csvYr = soup2.find('span',{'class':'h1Text'}).contents[0].strip()
-	links = soup2.findAll('a', href=True)
+	sublinks = soup2.findAll('a', href=True)
 	
-	for link in links:
-		print link.a['href']
+	for sublink in sublinks:
+		print sublink
 	
 	'''
 	#formBlock = soup2.findAll('ul', {'class': None}) # finds the UL without any class
