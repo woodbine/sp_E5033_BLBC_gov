@@ -36,9 +36,9 @@ for block in blocks:
 	soup2 = BeautifulSoup(html2)
 	
 	csvYr = soup2.find('span',{'class':'h1Text'}).contents[0].strip()
-	formAction = '/your-council/transparency-in-brent/open-data/monthly-spend/'+csvYr
 	
-	formBlock = soup2.find('form',{'action':formAction}) # find the block containing the links
+	formBlock = soup2.findAll('form') # find the block containing the links
+	print "++++++++++++++++++++++++++++++++++++++++++"
 	print formBlock
 	'''
 	fileBlocks = formBlock.findAll('li')
