@@ -37,7 +37,7 @@ for block in blocks:
 	
 	csvYr = soup2.find('span',{'class':'h1Text'}).contents[0].strip()
 	
-	formBlock = soup2.findAll('ul' attrs={'class': None}) # finds the UL without any class
+	formBlock = soup2.findAll('ul', {'class': None}) # finds the UL without any class
 	print "++++++++++++++++++++++++++++++++++++++++++"
 	print formBlock
 	'''
