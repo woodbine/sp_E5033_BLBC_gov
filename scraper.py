@@ -40,34 +40,24 @@ for block in blocks:
 	
 	for sublink in sublinks:
 		subhref = sublink['href']
-		print subhref
-	
-	'''
-	#formBlock = soup2.findAll('ul', {'class': None}) # finds the UL without any class
-	print "++++++++++++++++++++++++++++++++++++++++++"
-	print formBlock
-	
-	fileBlocks = formBlock.findAll('li')
-	
-	for fileBlock in fileBlocks:
-		fileUrl = fileBlock.a['href']
-		fileUrl = fileUrl.replace("/your-council","http://www.brent.gov.uk/your-council")
-		
-		title = fileBlock.a.contents[0]
-		# create the right strings for the new filename
-		title = title.upper().strip()
-		
-		if len(title.split()) > 1:
-			print 'not a single month'
-		else:
-			csvMth = title.split(' ')[0][:3]
-			csvMth = convert_mth_strings(csvMth);
-		
-			filename = entity_id + "_" + csvYr + "_" + csvMth
-		
-			todays_date = str(datetime.now())
-	
-			scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
+		if '/media' in subhref:
+			fileUrl = fileBlock.a['href']
+			fileUrl = fileUrl.replace("/your-council","http://www.brent.gov.uk/your-council")
 			
-			print filename
-'''
+			title = fileBlock.a.contents[0]
+			# create the right strings for the new filename
+			title = title.upper().strip()
+			
+			if len(title.split()) > 1:
+				print 'not a single month'
+			else:
+				csvMth = title.split(' ')[0][:3]
+				csvMth = convert_mth_strings(csvMth);
+			
+				filename = entity_id + "_" + csvYr + "_" + csvMth
+			
+				todays_date = str(datetime.now())
+		
+				scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
+				
+				print filename
