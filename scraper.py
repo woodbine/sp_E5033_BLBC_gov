@@ -41,10 +41,10 @@ for block in blocks:
 	for sublink in sublinks:
 		subhref = sublink['href']
 		if '/media' in subhref:
-			fileUrl = fileBlock.a['href']
+			fileUrl = subhref
 			fileUrl = fileUrl.replace("/your-council","http://www.brent.gov.uk/your-council")
 			
-			title = fileBlock.a.contents[0]
+			title = sublink.contents[0]
 			# create the right strings for the new filename
 			title = title.upper().strip()
 			
