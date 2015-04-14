@@ -36,6 +36,7 @@ for block in blocks:
 	soup2 = BeautifulSoup(html2)
 	
 	headBlock = soup2.find('header')
+	print headBlock
 	csvYr = headBlock.find('h1').contents[0].strip()
 	print "csvYr: " + csvYr
 	
