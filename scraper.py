@@ -43,7 +43,7 @@ for block in blocks:
 		if '/media' in subhref:
 			fileUrl = subhref
 			fileUrl = fileUrl.replace("/your-council","http://www.brent.gov.uk/your-council")
-			print sublink[0].attrs
+			print sublink.findnext
 			
 			title = sublink.contents[0]
 			
