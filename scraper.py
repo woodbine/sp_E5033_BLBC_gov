@@ -47,7 +47,7 @@ for block in blocks:
 			if sublink.findnext == None:
 				title = sublink.contents[0]
 			else:
-				title = sublink.contents[1]
+				print sublink.findnext()
 				
 			# create the right strings for the new filename
 			title = title.upper().strip()
