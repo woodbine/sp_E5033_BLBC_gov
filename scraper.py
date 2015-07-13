@@ -44,10 +44,11 @@ for block in blocks:
 			fileUrl = subhref
 			fileUrl = fileUrl.replace("/your-council","http://www.brent.gov.uk/your-council")
 			
-			if sublink.findnext == None:
-				title = sublink.contents[0]
-			else:
-				print sublink.findnext()
+			title = sublink.contents[0]
+			
+			if title == None:
+				print sublink
+				exit
 				
 			# create the right strings for the new filename
 			title = title.upper().strip()
