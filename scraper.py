@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 #### IMPORTS 1.0
@@ -7,8 +6,6 @@ import os
 import re
 import scraperwiki
 import urllib2
-import urllib
-import urlparse
 from datetime import datetime
 from bs4 import BeautifulSoup
 
@@ -54,7 +51,7 @@ def validateURL(url):
         else:
             ext = os.path.splitext(url)[1]
         validURL = r.getcode() == 200
-        validFiletype = ext in ['.csv', '.xls', '.xlsx', '.docx']
+        validFiletype = ext.lower() in ['.csv', '.xls', '.xlsx']
         return validURL, validFiletype
     except:
         print ("Error validating URL.")
@@ -102,7 +99,6 @@ soup = BeautifulSoup(html, 'lxml')
 #### SCRAPE DATA
 
 blocks = soup.findAll('h2', {'class':'removeLowerMargin'})
-
 for block in blocks:
     link = block.a['href']
     pageUrl = link.replace("/your-council","http://www.brent.gov.uk/your-council")
@@ -128,8 +124,6 @@ for block in blocks:
                 csvMth = 'Q0'
             else:
                 csvMth = title.split(' ')[0][:3]
-
-
             csvMth = convert_mth_strings(csvMth.upper())
             data.append([csvYr, csvMth, url])
 
